@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OLYTHOS — Ancient Wisdom. Modern Strength. | Greek Mythology Fitness</title>
+  <meta name="description" content="Immerse yourself in OLYTHOS: a cinematic fitness sanctuary inspired by Ancient Greek mythology, classical sculpture, and timeless athletic principles. Train like a legend with historically grounded workouts, Mediterranean nutrition, and stoic philosophy.">
+  <meta name="keywords" content="Greek mythology fitness, ancient Greek workout, Stoic fitness, calisthenics, Olympian training, Mediterranean athletic diet, Arete, Kalokagathia">
+  
+  <!-- Favicon / Sigil -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230D0E10'/><polygon points='50,15 85,85 15,85' stroke='%23C8A359' stroke-width='8' fill='none'/></svg>">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       TOP SANCTUARY NAVIGATION
+       ======================================================================== -->
+  <header>
+    <nav class="sanctuary-nav" id="main-nav" aria-label="Sanctuary Navigation">
+      <div class="brand-wrapper">
+        <a href="#home" class="brand-link nav-page-link" data-route="home" style="display: flex; align-items: center; gap: 0.85rem;">
+          <div class="brand-sigil" aria-hidden="true">
+            <span>Ω</span>
+          </div>
+          <div>
+            <span class="brand-title">OLYTHOS</span>
+            <span class="brand-subtitle">Ancient Wisdom. Modern Strength.</span>
+          </div>
+        </a>
+      </div>
+
+      <ul class="nav-links" id="nav-links-menu">
+        <li><a href="#home" class="nav-link nav-page-link active" data-route="home">Home</a></li>
+        <li><a href="#pantheon" class="nav-link nav-page-link" data-route="pantheon">Pantheon</a></li>
+        <li><a href="#training" class="nav-link nav-page-link" data-route="training">Training Grounds</a></li>
+        <li><a href="#exercises" class="nav-link nav-page-link" data-route="exercises">Exercise Library</a></li>
+        <li><a href="#nutrition" class="nav-link nav-page-link" data-route="nutrition">Nutrition</a></li>
+        <li><a href="#philosophy" class="nav-link nav-page-link" data-route="philosophy">Philosophy</a></li>
+        <li><a href="#progress" class="nav-link nav-page-link" data-route="progress">Progress</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Ambient Soundscape Toggle Button -->
+        <button id="audio-toggle-btn" class="audio-toggle-btn" aria-label="Toggle sanctuary ambient soundscape">
+          <span class="audio-pulse-indicator" aria-hidden="true"></span>
+          <span class="audio-text">Sanctuary Audio</span>
+        </button>
+
+        <a href="#training" class="btn-olympian nav-page-link" data-route="training" style="padding: 0.55rem 1.25rem; font-size: 0.78rem;">
+          Enter Grounds
+        </a>
+
+        <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Open navigation menu">
+          ☰
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ========================================================================
+         PAGE 1: HOME (MONUMENTAL HERO & SANCTUARY PORTAL)
+         ======================================================================== -->
+    <div class="page-view active-page" id="page-home" data-page="home">
+      <section class="hero-sanctuary">
+        <!-- High-Resolution Layered Background -->
+        <img src="assets/images/hero_sanctuary_dawn.jpg" 
+             alt="Monumental Ancient Greek sanctuary at sunrise with limestone columns and classical marble athlete sculpture" 
+             class="hero-environment-canvas">
+
+        <!-- Controlled Charcoal Gradient Overlay on the Left -->
+        <div class="hero-readability-scrim" aria-hidden="true"></div>
+
+        <div class="hero-content">
+          <div class="hero-creed-badge">
+            <span class="dot"></span>
+            <span>Ancient Wisdom • Modern Strength</span>
+          </div>
+
+          <h1 class="hero-main-heading">
+            Train Like <br>
+            <span class="gold-text">A Legend.</span>
+          </h1>
+
+          <p class="hero-description">
+            Step beyond the sterile gym into an ancient athletic world. Grounded in the classical pursuit of <em>Arete</em> (excellence) and <em>Kalokagathia</em> (harmony of form and spirit), OLYTHOS fuses time-tested Hellenic disciplines with cutting-edge strength and biomechanics.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#pantheon" class="btn-olympian nav-page-link" data-route="pantheon">
+              <span>🏛️</span> Choose Deity Discipline
+            </a>
+            <a href="#training" class="btn-stone-outline nav-page-link" data-route="training">
+              <span>⚡</span> Enter Training Grounds
+            </a>
+          </div>
+
+          <div class="hero-stats-banner">
+            <div class="stat-item">
+              <span class="stat-value">6</span>
+              <span class="stat-label">Pantheon Paths</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">100%</span>
+              <span class="stat-label">Classical Arete</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">776 BC</span>
+              <span class="stat-label">Olympic Heritage</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sanctuary Portal Gateways on Home -->
+      <section class="section-sanctuary" style="background: #111215;">
+        <div class="section-container">
+          <div class="section-header">
+            <span class="section-tagline">Sanctuary Chambers</span>
+            <h2 class="section-title">Enter The Sacred Quarters</h2>
+            <p class="section-lead">Select any chamber to open its dedicated sanctuary world.</p>
+          </div>
+
+          <div class="pantheon-grid">
+            <div class="pantheon-card nav-page-link" data-route="pantheon" style="height: 360px;">
+              <img src="assets/images/zeus_mountain_sanctuary.jpg" alt="" class="pantheon-card-bg" loading="lazy">
+              <div class="pantheon-card-overlay"></div>
+              <div class="pantheon-card-content">
+                <span class="pantheon-deity-badge">DIVINE ARCHETYPES</span>
+                <h3 class="pantheon-deity-title">The Pantheon</h3>
+                <p class="pantheon-deity-discipline">Master raw power under Zeus, strategy under Athena, and aesthetics under Apollo.</p>
+                <div class="pantheon-card-footer">
+                  <span class="pantheon-focus-pill">Open Pantheon</span>
+                  <span class="pantheon-arrow">→</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pantheon-card nav-page-link" data-route="training" style="height: 360px;">
+              <img src="assets/images/training_olympic_ground.jpg" alt="" class="pantheon-card-bg" loading="lazy">
+              <div class="pantheon-card-overlay"></div>
+              <div class="pantheon-card-content">
+                <span class="pantheon-deity-badge">PALAESTRA & DROMOS</span>
+                <h3 class="pantheon-deity-title">Training Grounds</h3>
+                <p class="pantheon-deity-discipline">Execute authentic period protocols, rest timers with bronze chimes, and track sets.</p>
+                <div class="pantheon-card-footer">
+                  <span class="pantheon-focus-pill">Open Training</span>
+                  <span class="pantheon-arrow">→</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pantheon-card nav-page-link" data-route="exercises" style="height: 360px;">
+              <img src="assets/images/apollo_golden_courtyard.jpg" alt="" class="pantheon-card-bg" loading="lazy">
+              <div class="pantheon-card-overlay"></div>
+              <div class="pantheon-card-content">
+                <span class="pantheon-deity-badge">CLASSICAL CODEX</span>
+                <h3 class="pantheon-deity-title">Exercise Library</h3>
+                <p class="pantheon-deity-discipline">Search biomechanics, muscle filters, and historical origins of Hellenic exercises.</p>
+                <div class="pantheon-card-footer">
+                  <span class="pantheon-focus-pill">Open Codex</span>
+                  <span class="pantheon-arrow">→</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pantheon-card nav-page-link" data-route="nutrition" style="height: 360px;">
+              <img src="assets/images/nutrition_stone_table.jpg" alt="" class="pantheon-card-bg" loading="lazy">
+              <div class="pantheon-card-overlay"></div>
+              <div class="pantheon-card-content">
+                <span class="pantheon-deity-badge">MEDITERRANEAN FUEL</span>
+                <h3 class="pantheon-deity-title">Olympic Nutrition</h3>
+                <p class="pantheon-deity-discipline">Calculate sacred macro distributions and explore whole Mediterranean fuel sources.</p>
+                <div class="pantheon-card-footer">
+                  <span class="pantheon-focus-pill">Open Nutrition</span>
+                  <span class="pantheon-arrow">→</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========================================================================
+         PAGE 2: PANTHEON DISCIPLINES (DEDICATED PAGE)
+         ======================================================================== -->
+    <div class="page-view" id="page-pantheon" data-page="pantheon">
+      <section class="section-sanctuary">
+        <img src="assets/images/zeus_mountain_sanctuary.jpg" alt="" class="section-backdrop" aria-hidden="true">
+        <div class="section-backdrop-overlay" aria-hidden="true"></div>
+
+        <div class="section-container">
+          <div class="page-breadcrumb">
+            <a href="#home" class="nav-page-link" data-route="home">Sanctuary</a>
+            <span>/</span>
+            <span class="current">The Pantheon Disciplines</span>
+          </div>
+
+          <div class="section-header">
+            <span class="section-tagline">Divine Archetypes</span>
+            <h2 class="section-title">The Pantheon Disciplines</h2>
+            <p class="section-lead">
+              Every Olympian deity embodies a distinct physical and psychological mastery. Click any deity to open their sacred training protocol directly in the Training Grounds.
+            </p>
+          </div>
+
+          <div class="pantheon-grid">
+            <!-- Zeus Card -->
+            <article class="pantheon-card deity-select-trigger" data-deity="zeus">
+              <img src="assets/images/zeus_mountain_sanctuary.jpg" alt="Mount Olympus towering sanctuary under celestial light" class="pantheon-card-bg" loading="lazy">
+              <div class="pantheon-card-overlay"></div>
+              <div class="pantheon-card-content">
+                <span class="pantheon-deity-badge">Supreme Sovereignty</span>
+                <h3 class="pantheon-deity-title">Zeus</h3>
+                <p class="pantheon-deity-discipline">Raw axial power, heavy compound movements, and immovable physical strength.</p>
+                <div class="pantheon-card-footer">
+                  <span class="pantheon-focus-pill">Heavy Compounds</span>
+                  <span class="pantheon-arrow">Train with Zeus →</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Athena Card -->
+            <article class="pantheon-card deity-select-trigger" data-deity="athena">
+              <img src="assets/images/athena_olive_sanctuary.jpg" alt="Athena sanctuary with olive trees and classical friezes" class="pantheon-card-bg" loading="lazy">
+              <div class="pantheon-card-overlay"></div>
+              <div class="pantheon-card-content">
+                <span class="pantheon-deity-badge">Strategic Mastery</span>
+                <h3 class="pantheon-deity-title">Athena</h3>
+                <p class="pantheon-deity-discipline">Calculated calisthenics, flawless relative strength, and gymnasion bodyweight control.</p>
+                <div class="pantheon-card-footer">
+                  <span class="pantheon-focus-pill">Tactical Calisthenics</span>
+                  <span class="pantheon-arrow">Train with Athena →</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Apollo Card -->
+            <article class="pantheon-card deity-select-trigger" data-deity="apollo">
+              <img src="assets/images/apollo_golden_courtyard.jpg" alt="Apollo sunlit marble peristyle courtyard with laurel trees" class="pantheon-card-bg" loading="lazy">
+              <div class="pantheon-card-overlay"></div>
+              <div class="pantheon-card-content">
+                <span class="pantheon-deity-badge">Golden Harmony</span>
+                <h3 class="pantheon-deity-title">Apollo</h3>
+                <p class="pantheon-deity-discipline">Aesthetic symmetry, the golden shoulder-to-waist ratio, and upright posture.</p>
+                <div class="pantheon-card-footer">
+                  <span class="pantheon-focus-pill">Hypertrophy & Posture</span>
+                  <span class="pantheon-arrow">Train with Apollo →</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Poseidon Card -->
+            <article class="pantheon-card deity-select-trigger" data-deity="poseidon">
+              <img src="assets/images/poseidon_coastal_temple.jpg" alt="Poseidon coastal temple overlooking surging Mediterranean waves" class="pantheon-card-bg" loading="lazy">
+              <div class="pantheon-card-overlay"></div>
+              <div class="pantheon-card-content">
+                <span class="pantheon-deity-badge">Tide & Tempest</span>
+                <h3 class="pantheon-deity-title">Poseidon</h3>
+                <p class="pantheon-deity-discipline">Unrelenting pulling stamina, dense posterior chain power, and fluid joint longevity.</p>
+                <div class="pantheon-card-footer">
+                  <span class="pantheon-focus-pill">Stamina & Pulling</span>
+                  <span class="pantheon-arrow">Train with Poseidon →</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Hermes Card -->
+            <article class="pantheon-card deity-select-trigger" data-deity="hermes">
+              <img src="assets/images/training_olympic_ground.jpg" alt="Hermes Olympic sprinting stadium" class="pantheon-card-bg" loading="lazy">
+              <div class="pantheon-card-overlay"></div>
+              <div class="pantheon-card-content">
+                <span class="pantheon-deity-badge">Winged Acceleration</span>
+                <h3 class="pantheon-deity-title">Hermes</h3>
+                <p class="pantheon-deity-discipline">Fast-twitch sprint speed, explosive plyometrics, and lightning footwork.</p>
+                <div class="pantheon-card-footer">
+                  <span class="pantheon-focus-pill">Speed & Agility</span>
+                  <span class="pantheon-arrow">Train with Hermes →</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========================================================================
+         PAGE 3: TRAINING GROUNDS (WORKOUT PLANNER & RUNNER)
+         ======================================================================== -->
+    <div class="page-view" id="page-training" data-page="training">
+      <section class="section-sanctuary">
+        <!-- Environmental Background -->
+        <img src="assets/images/training_olympic_ground.jpg" alt="" class="section-backdrop" aria-hidden="true">
+        <div class="section-backdrop-overlay" aria-hidden="true"></div>
+
+        <div class="section-container">
+          <div class="page-breadcrumb">
+            <a href="#home" class="nav-page-link" data-route="home">Sanctuary</a>
+            <span>/</span>
+            <a href="#pantheon" class="nav-page-link" data-route="pantheon">Pantheon</a>
+            <span>/</span>
+            <span class="current">Olympic Training Grounds</span>
+          </div>
+
+          <div class="section-header">
+            <span class="section-tagline">Palaestra & Dromos</span>
+            <h2 class="section-title">The Olympic Training Grounds</h2>
+            <p class="section-lead">
+              Engage with authentic period workout protocols. Choose your deity alignment, log your completed sets, and pace your rest periods with the temple bronze chime.
+            </p>
+          </div>
+
+          <div class="workout-arena-grid">
+            <!-- Left Control Panel -->
+            <aside class="arena-controls-panel">
+              <h3 class="arena-controls-title">
+                <span>Protocol Config</span>
+                <span style="font-size: 0.8rem; color: var(--color-gold-bright);">OLYMPIA</span>
+              </h3>
+
+              <div class="control-group">
+                <label for="routine-selector" class="control-label">Pantheon Discipline</label>
+                <select id="routine-selector" class="stone-select">
+                  <option value="zeus">⚡ Zeus (Power & Heavy Compounds)</option>
+                  <option value="athena">🦉 Athena (Tactical Calisthenics)</option>
+                  <option value="apollo">☀️ Apollo (Proportions & Aesthetics)</option>
+                  <option value="poseidon">🔱 Poseidon (Hydro-Endurance & Back)</option>
+                  <option value="hermes">🪽 Hermes (Winged Speed & Agility)</option>
+                </select>
+              </div>
+
+              <div class="control-group">
+                <label for="tier-selector" class="control-label">Athletic Status (Tier)</label>
+                <select id="tier-selector" class="stone-select">
+                  <option value="novice">Ephebe (Novice Initiate)</option>
+                  <option value="intermediate" selected>Hoplite (Disciplined Warrior)</option>
+                  <option value="legend">Olympian (Master of the Games)</option>
+                </select>
+              </div>
+
+              <div class="control-group">
+                <label for="equipment-selector" class="control-label">Sacred Equipment</label>
+                <select id="equipment-selector" class="stone-select">
+                  <option value="hybrid">Modern Iron & Barbell Gymnasium</option>
+                  <option value="ancient">Ancient Minimalist (Bodyweight & Rocks)</option>
+                  <option value="calisthenics">Palaestra Rig & Timber Beams</option>
+                </select>
+              </div>
+
+              <div style="background: rgba(13, 14, 16, 0.6); padding: 1.25rem; border: 1px solid rgba(200, 163, 89, 0.2); border-radius: var(--radius-stone); margin-top: 2rem;">
+                <span style="font-family: var(--font-serif); font-size: 0.72rem; letter-spacing: 0.15em; color: var(--color-gold-antique); display: block; margin-bottom: 0.4rem;">PALAESTRA RULE</span>
+                <p style="font-size: 0.82rem; color: var(--color-limestone); line-height: 1.45;">
+                  "A warrior does not seek comfort on the training ground. Strict cadence and controlled descent forge true durability."
+                </p>
+              </div>
+            </aside>
+
+            <!-- Right Active Routine Board -->
+            <div class="arena-board" id="routine-board-container">
+              <!-- Dynamic JavaScript content injected via app.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========================================================================
+         PAGE 4: EXERCISE LIBRARY (SEARCH, FILTERS & DETAILED MODALS)
+         ======================================================================== -->
+    <div class="page-view" id="page-exercises" data-page="exercises">
+      <section class="section-sanctuary">
+        <img src="assets/images/apollo_golden_courtyard.jpg" alt="" class="section-backdrop" aria-hidden="true">
+        <div class="section-backdrop-overlay" aria-hidden="true"></div>
+
+        <div class="section-container">
+          <div class="page-breadcrumb">
+            <a href="#home" class="nav-page-link" data-route="home">Sanctuary</a>
+            <span>/</span>
+            <span class="current">The Exercise Codex</span>
+          </div>
+
+          <div class="section-header">
+            <span class="section-tagline">Classical Codex</span>
+            <h2 class="section-title">The Exercise Library</h2>
+            <p class="section-lead">
+              Study the ancient athletic techniques passed down through centuries. Search by biomechanics, filter by muscle groups, and inspect deep historical lore.
+            </p>
+          </div>
+
+          <!-- Search Bar -->
+          <div class="exercise-search-input-wrapper">
+            <input type="text" id="exercise-search-input" class="exercise-search-box" placeholder="Search exercises, Greek titles, or target muscles..." aria-label="Search exercises">
+          </div>
+
+          <!-- Filter Pills -->
+          <div class="exercise-filter-bar" role="tablist">
+            <button class="filter-pill-btn active" data-filter="all">All Movements</button>
+            <button class="filter-pill-btn" data-filter="strength">Strength</button>
+            <button class="filter-pill-btn" data-filter="calisthenics">Calisthenics</button>
+            <button class="filter-pill-btn" data-filter="mobility">Mobility</button>
+            <button class="filter-pill-btn" data-filter="speed">Speed & Agility</button>
+            <button class="filter-pill-btn" data-filter="chest">Chest</button>
+            <button class="filter-pill-btn" data-filter="back">Back</button>
+            <button class="filter-pill-btn" data-filter="legs">Legs</button>
+            <button class="filter-pill-btn" data-filter="core">Core</button>
+          </div>
+
+          <!-- Exercise Cards Grid -->
+          <div class="exercise-card-grid" id="exercise-card-grid">
+            <!-- Injected via app.js -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========================================================================
+         PAGE 5: NUTRITION & MEDITERRANEAN FUEL CALCULATOR
+         ======================================================================== -->
+    <div class="page-view" id="page-nutrition" data-page="nutrition">
+      <section class="section-sanctuary">
+        <img src="assets/images/nutrition_stone_table.jpg" alt="" class="section-backdrop" aria-hidden="true">
+        <div class="section-backdrop-overlay" aria-hidden="true"></div>
+
+        <div class="section-container">
+          <div class="page-breadcrumb">
+            <a href="#home" class="nav-page-link" data-route="home">Sanctuary</a>
+            <span>/</span>
+            <span class="current">Sacred Sustenance</span>
+          </div>
+
+          <div class="section-header">
+            <span class="section-tagline">Sacred Sustenance</span>
+            <h2 class="section-title">The Olympic Banquet & Fuel</h2>
+            <p class="section-lead">
+              Ancient Greek athletes did not consume artificial chemicals. They fueled their physical triumphs on cold-pressed olive oils, wild honey, dark olives, fresh figs, and clean meats.
+            </p>
+          </div>
+
+          <div class="nutrition-grid">
+            <!-- Macro Calculator -->
+            <div class="nutrition-calc-box">
+              <h3 style="font-size: 1.35rem; color: var(--color-ivory); margin-bottom: 0.5rem;">Ancient Fuel & Macro Calculator</h3>
+              <p style="font-size: 0.88rem; color: var(--color-limestone); margin-bottom: 1.75rem;">Calculate your daily caloric energy balance and macronutrient distribution according to classical athletic demands.</p>
+
+              <form id="nutrition-calc-form">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                  <div class="control-group">
+                    <label for="nutri-age" class="control-label">Age (Solar Years)</label>
+                    <input type="number" id="nutri-age" class="stone-input" value="26" required min="14" max="90">
+                  </div>
+                  <div class="control-group">
+                    <label for="nutri-gender" class="control-label">Physiology</label>
+                    <select id="nutri-gender" class="stone-select">
+                      <option value="male">Male Athlete</option>
+                      <option value="female">Female Athlete</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                  <div class="control-group">
+                    <label for="nutri-weight" class="control-label">Body Mass (kg)</label>
+                    <input type="number" id="nutri-weight" class="stone-input" value="82" required min="40" max="200">
+                  </div>
+                  <div class="control-group">
+                    <label for="nutri-height" class="control-label">Height (cm)</label>
+                    <input type="number" id="nutri-height" class="stone-input" value="180" required min="120" max="230">
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                  <div class="control-group">
+                    <label for="nutri-goal" class="control-label">Sacred Target</label>
+                    <select id="nutri-goal" class="stone-select">
+                      <option value="hypertrophy">Spartan Muscle Mass (+350 kcal)</option>
+                      <option value="shred">Thermopylae Shred (-450 kcal)</option>
+                      <option value="endurance">Olympic Marathon Fuel (+150 kcal)</option>
+                    </select>
+                  </div>
+                  <div class="control-group">
+                    <label for="nutri-intensity" class="control-label">Training Intensity</label>
+                    <select id="nutri-intensity" class="stone-select">
+                      <option value="heavy" selected>Heavy Daily Training (1.65×)</option>
+                      <option value="moderate">Moderate Training (1.45×)</option>
+                      <option value="olympian">Olympian Double Sessions (1.85×)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn-olympian" style="width: 100%;">
+                  <span>🏺</span> Calculate Macro Fuel Blueprint
+                </button>
+              </form>
+
+              <!-- Results -->
+              <div class="macro-results-grid">
+                <div class="macro-card">
+                  <div class="macro-val" id="res-calories">2,850</div>
+                  <div class="macro-name">Daily Kcal</div>
+                </div>
+                <div class="macro-card">
+                  <div class="macro-val" id="res-protein">180g</div>
+                  <div class="macro-name">Protein</div>
+                </div>
+                <div class="macro-card">
+                  <div class="macro-val" id="res-carbs">310g</div>
+                  <div class="macro-name">Carbohydrates</div>
+                </div>
+                <div class="macro-card">
+                  <div class="macro-val" id="res-fats">88g</div>
+                  <div class="macro-name">Healthy Fats</div>
+                </div>
+              </div>
+              <div style="text-align: center; margin-top: 1rem;">
+                <span style="font-size: 0.8rem; color: var(--color-gold-antique); font-family: var(--font-serif);">
+                  💧 Recommended Hydration: <strong id="res-water" style="color: var(--color-ivory);">3.3L</strong> of pure spring water daily
+                </span>
+              </div>
+            </div>
+
+            <!-- Mediterranean Nutrition Guide -->
+            <div>
+              <h3 style="font-size: 1.35rem; color: var(--color-ivory); margin-bottom: 0.75rem;">The Mediterranean Athletic Pantry</h3>
+              <p style="font-size: 0.95rem; color: var(--color-limestone); line-height: 1.6; margin-bottom: 1.5rem;">
+                Embrace whole, unprocessed foods cultivated under the Aegean sun. Each ingredient supports natural hormone synthesis, deep cellular recovery, and long-term athletic vitality.
+              </p>
+
+              <div class="mediterranean-pantry-grid">
+                <div class="pantry-card">
+                  <div class="pantry-icon">🫒</div>
+                  <h4 class="pantry-food-title">Extra Virgin Olive Oil</h4>
+                  <p class="pantry-food-benefit">Rich in polyphenols and monounsaturated oleic acid. Essential for joint longevity and cell membrane integrity.</p>
+                </div>
+
+                <div class="pantry-card">
+                  <div class="pantry-icon">🍯</div>
+                  <h4 class="pantry-food-title">Wild Thyme Honey</h4>
+                  <p class="pantry-food-benefit">Consumed by Olympic runners before sprints for fast glycogen replenishment and enzymatic immune protection.</p>
+                </div>
+
+                <div class="pantry-card">
+                  <div class="pantry-icon">🍇</div>
+                  <h4 class="pantry-food-title">Black Kalamata Olives & Figs</h4>
+                  <p class="pantry-food-benefit">High in potassium, magnesium, and dietary fiber. Prevents muscular cramping during intense summer heat.</p>
+                </div>
+
+                <div class="pantry-card">
+                  <div class="pantry-icon">🐟</div>
+                  <h4 class="pantry-food-title">Aegean Wild Catch & Curd</h4>
+                  <p class="pantry-food-benefit">Sardines, sea bass, and fermented goat curd provide dense, highly bioavailable complete amino acids and omega-3s.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========================================================================
+         PAGE 6: PHILOSOPHY (FOUR PILLARS & DELPHIC STOIC ORACLE)
+         ======================================================================== -->
+    <div class="page-view" id="page-philosophy" data-page="philosophy">
+      <section class="section-sanctuary">
+        <img src="assets/images/philosophy_marble_hall.jpg" alt="" class="section-backdrop" aria-hidden="true">
+        <div class="section-backdrop-overlay" aria-hidden="true"></div>
+
+        <div class="section-container">
+          <div class="page-breadcrumb">
+            <a href="#home" class="nav-page-link" data-route="home">Sanctuary</a>
+            <span>/</span>
+            <span class="current">Stoic Intellect</span>
+          </div>
+
+          <div class="section-header">
+            <span class="section-tagline">Intellect & Fortitude</span>
+            <h2 class="section-title">The Four Pillars of Athletic Arete</h2>
+            <p class="section-lead">
+              In Ancient Greece, physical conditioning was meaningless without noble character. True power resides at the intersection of body and mind.
+            </p>
+          </div>
+
+          <div class="pillars-grid">
+            <div class="pillar-card">
+              <div class="pillar-greek-name">ΑΡΕΤΗ</div>
+              <h3 class="pillar-english-title">Arete (Moral & Physical Excellence)</h3>
+              <p style="font-size: 0.9rem; color: var(--color-limestone-dark); line-height: 1.55;">
+                The relentless striving to fulfill one's highest potential in every endeavor. It is the refusal to accept mediocrity or excuses.
+              </p>
+              <p class="pillar-quote">"Excellence is never an accident; it is the result of high intention and sincere effort."</p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-greek-name">ΚΑΛΟΚΑΓΑΘΙΑ</div>
+              <h3 class="pillar-english-title">Kalokagathia (Harmonious Beauty)</h3>
+              <p style="font-size: 0.9rem; color: var(--color-limestone-dark); line-height: 1.55;">
+                The ideal fusion of physical beauty (kalos) and virtuous character (agathos). A symmetrical physique housing an honorable soul.
+              </p>
+              <p class="pillar-quote">"Beauty without virtue is like a flower without fragrance."</p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-greek-name">ΣΩΦΡΟΣΥΝΗ</div>
+              <h3 class="pillar-english-title">Sophrosyne (Disciplined Temperance)</h3>
+              <p style="font-size: 0.9rem; color: var(--color-limestone-dark); line-height: 1.55;">
+                Self-control, balance, and quiet moderation. Avoiding ego lifting, reckless overtraining, and indulgences that poison recovery.
+              </p>
+              <p class="pillar-quote">"Mastering others is strength. Mastering yourself is true power."</p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-greek-name">ΑΓΩΝ</div>
+              <h3 class="pillar-english-title">Agon (The Sacred Struggle)</h3>
+              <p style="font-size: 0.9rem; color: var(--color-limestone-dark); line-height: 1.55;">
+                The contest against adversity. In Greek athletic thought, the struggle itself is what sanctifies the victor and strengthens the spirit.
+              </p>
+              <p class="pillar-quote">"Without struggle, there is no glory on the field of Olympia."</p>
+            </div>
+          </div>
+
+          <!-- Delphic Stoic Oracle -->
+          <div class="delphic-oracle-altar">
+            <span style="font-family: var(--font-serif); font-size: 0.78rem; letter-spacing: 0.25em; color: var(--color-gold-antique); text-transform: uppercase; display: block; margin-bottom: 0.75rem;">
+              Oracle of Delphi • Daily Stoic Inscription
+            </span>
+            <blockquote class="oracle-quote-text" id="oracle-quote-text">
+              "No man has the right to be an amateur in the matter of physical training. It is a shame for a man to grow old without seeing the beauty and strength of which his body is capable."
+            </blockquote>
+            <div class="oracle-author" id="oracle-author">— Socrates</div>
+
+            <div style="margin-top: 2rem;">
+              <button id="consult-oracle-btn" class="btn-olympian">
+                <span>🔮</span> Consult The Oracle
+              </button>
+            </div>
+
+            <!-- Daily Stoic Journal -->
+            <div style="margin-top: 3rem; text-align: left; border-top: 1px solid rgba(200, 163, 89, 0.2); padding-top: 2rem;">
+              <h4 style="font-size: 1.1rem; color: var(--color-ivory); margin-bottom: 0.5rem;">Daily Stoic Reflection Scroll</h4>
+              <p style="font-size: 0.85rem; color: var(--color-limestone); margin-bottom: 1rem;">Record what resistance you conquered today or what mental obstacle you transformed into fuel.</p>
+              <textarea id="journal-input" class="stone-input" rows="3" placeholder="Inscribe your reflection here... e.g. Pushed through fatigue on squats with calm breath." style="resize: vertical; margin-bottom: 0.75rem;"></textarea>
+              <button id="save-journal-btn" class="btn-stone-outline" style="padding: 0.5rem 1.25rem; font-size: 0.78rem;">Inscribe Scroll</button>
+
+              <div class="journal-log-list" id="journal-log-list">
+                <!-- Logs injected via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========================================================================
+         PAGE 7: PROGRESS DASHBOARD (PANTHEON ALIGNMENT & LEDGER)
+         ======================================================================== -->
+    <div class="page-view" id="page-progress" data-page="progress">
+      <section class="section-sanctuary">
+        <div class="section-container">
+          <div class="page-breadcrumb">
+            <a href="#home" class="nav-page-link" data-route="home">Sanctuary</a>
+            <span>/</span>
+            <span class="current">Pantheon Alignment</span>
+          </div>
+
+          <div class="section-header">
+            <span class="section-tagline">Pantheon Alignment</span>
+            <h2 class="section-title">The Sacred Progress Dashboard</h2>
+            <p class="section-lead">
+              A quiet, restrained overview of your athletic evolution. Monitor your divine attributes, enshrine personal records, and maintain the consistency streak.
+            </p>
+          </div>
+
+          <div class="dashboard-grid">
+            <!-- Left: Pantheon Attributes Alignment -->
+            <div class="dash-stone-card">
+              <h3 class="dash-card-title">
+                <span>Divine Attribute Alignment</span>
+                <span style="font-size: 0.75rem; color: var(--color-gold-bright);">MAX 100</span>
+              </h3>
+
+              <div class="alignment-bar-row">
+                <div class="alignment-bar-meta">
+                  <span>⚡ Zeus: Raw Compound Power</span>
+                  <span id="val-zeus">78 / 100</span>
+                </div>
+                <div class="alignment-track">
+                  <div class="alignment-fill" id="pantheon-bar-zeus" style="width: 78%;"></div>
+                </div>
+              </div>
+
+              <div class="alignment-bar-row">
+                <div class="alignment-bar-meta">
+                  <span>🦉 Athena: Relative Calisthenics & Skill</span>
+                  <span id="val-athena">82 / 100</span>
+                </div>
+                <div class="alignment-track">
+                  <div class="alignment-fill" id="pantheon-bar-athena" style="width: 82%;"></div>
+                </div>
+              </div>
+
+              <div class="alignment-bar-row">
+                <div class="alignment-bar-meta">
+                  <span>☀️ Apollo: Golden Symmetry & Proportion</span>
+                  <span id="val-apollo">74 / 100</span>
+                </div>
+                <div class="alignment-track">
+                  <div class="alignment-fill" id="pantheon-bar-apollo" style="width: 74%;"></div>
+                </div>
+              </div>
+
+              <div class="alignment-bar-row">
+                <div class="alignment-bar-meta">
+                  <span>🔱 Poseidon: Posterior Stamina & Fluidity</span>
+                  <span id="val-poseidon">80 / 100</span>
+                </div>
+                <div class="alignment-track">
+                  <div class="alignment-fill" id="pantheon-bar-poseidon" style="width: 80%;"></div>
+                </div>
+              </div>
+
+              <div class="alignment-bar-row">
+                <div class="alignment-bar-meta">
+                  <span>🪽 Hermes: Fast-Twitch Sprint & Agility</span>
+                  <span id="val-hermes">86 / 100</span>
+                </div>
+                <div class="alignment-track">
+                  <div class="alignment-fill" id="pantheon-bar-hermes" style="width: 86%;"></div>
+                </div>
+              </div>
+
+              <!-- 7-Day Consistency Streak -->
+              <div style="margin-top: 2rem; border-top: 1px solid rgba(200, 163, 89, 0.18); padding-top: 1.25rem;">
+                <span style="font-family: var(--font-serif); font-size: 0.75rem; letter-spacing: 0.12em; color: var(--color-gold-antique); text-transform: uppercase;">
+                  Olympic 7-Day Consistency Streak
+                </span>
+                <div class="streak-days-row">
+                  <div class="streak-day-node">
+                    <span class="streak-day-label">MON</span>
+                    <div class="streak-day-badge active">✓</div>
+                  </div>
+                  <div class="streak-day-node">
+                    <span class="streak-day-label">TUE</span>
+                    <div class="streak-day-badge active">✓</div>
+                  </div>
+                  <div class="streak-day-node">
+                    <span class="streak-day-label">WED</span>
+                    <div class="streak-day-badge active">✓</div>
+                  </div>
+                  <div class="streak-day-node">
+                    <span class="streak-day-label">THU</span>
+                    <div class="streak-day-badge active">✓</div>
+                  </div>
+                  <div class="streak-day-node">
+                    <span class="streak-day-label">FRI</span>
+                    <div class="streak-day-badge active">✓</div>
+                  </div>
+                  <div class="streak-day-node">
+                    <span class="streak-day-label">SAT</span>
+                    <div class="streak-day-badge">⚡</div>
+                  </div>
+                  <div class="streak-day-node">
+                    <span class="streak-day-label">SUN</span>
+                    <div class="streak-day-badge">🏛️</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Enshrined Personal Records (PRs) -->
+            <div class="dash-stone-card">
+              <h3 class="dash-card-title">
+                <span>Enshrined Personal Records</span>
+                <span style="font-size: 0.75rem; color: var(--color-gold-bright);">TEMPLE STONE</span>
+              </h3>
+
+              <div class="pr-inputs-grid">
+                <div class="pr-input-item">
+                  <label for="pr-squat">Leonidas Squat (kg)</label>
+                  <input type="number" id="pr-squat" class="stone-input" value="140">
+                </div>
+                <div class="pr-input-item">
+                  <label for="pr-deadlift">Atlas Deadlift (kg)</label>
+                  <input type="number" id="pr-deadlift" class="stone-input" value="180">
+                </div>
+                <div class="pr-input-item">
+                  <label for="pr-bench">Apollo Bench (kg)</label>
+                  <input type="number" id="pr-bench" class="stone-input" value="110">
+                </div>
+                <div class="pr-input-item">
+                  <label for="pr-press">Phalanx Press (kg)</label>
+                  <input type="number" id="pr-press" class="stone-input" value="70">
+                </div>
+                <div class="pr-input-item" style="grid-column: 1 / -1;">
+                  <label for="pr-pullups">Athenian Pull-Ups (Max Reps)</label>
+                  <input type="number" id="pr-pullups" class="stone-input" value="18">
+                </div>
+              </div>
+
+              <button id="save-pr-btn" class="btn-olympian" style="width: 100%; margin-top: 1.5rem;">
+                <span>🏛️</span> Enshrine Records to Temple
+              </button>
+            </div>
+          </div>
+
+          <!-- Protocol History Table -->
+          <div class="dash-stone-card">
+            <h3 class="dash-card-title">
+              <span>Completed Protocol Ledger</span>
+              <span style="font-size: 0.75rem; color: var(--color-gold-bright);">SACRED RECORD</span>
+            </h3>
+
+            <div style="overflow-x: auto;">
+              <table class="set-tracker-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Protocol Name</th>
+                    <th>Sacred Focus</th>
+                    <th>Execution Ratio</th>
+                  </tr>
+                </thead>
+                <tbody id="workout-history-tbody">
+                  <!-- Injected via app.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       MODAL DIALOG (EXERCISE BIOMECHANICS & HISTORICAL LORE)
+       ======================================================================== -->
+  <div class="modal-overlay" id="exercise-modal-overlay" role="dialog" aria-modal="true" aria-label="Exercise Details">
+    <div class="modal-stone-dialog">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close dialog">✕</button>
+      <div id="modal-content-container">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       FOOTER: ANCIENT SANCTUARY
+       ======================================================================== -->
+  <footer class="sanctuary-footer">
+    <div class="footer-inner">
+      <div>
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+          <div class="brand-sigil" style="width: 28px; height: 28px;" aria-hidden="true">
+            <span style="font-size: 0.8rem;">Ω</span>
+          </div>
+          <span style="font-family: var(--font-serif); font-size: 1.3rem; font-weight: 800; letter-spacing: 0.15em; color: var(--color-ivory);">OLYTHOS</span>
+        </div>
+        <p style="font-size: 0.9rem; line-height: 1.6; color: var(--color-text-secondary); max-width: 420px;">
+          An original cinematic fitness sanctuary honoring classical Greek sculpture, ancient architecture, and timeless athletic philosophy. Forged with pure code and natural Mediterranean materials.
+        </p>
+      </div>
+
+      <div>
+        <h4 style="font-size: 0.85rem; color: var(--color-gold-antique); margin-bottom: 1.25rem; letter-spacing: 0.14em;">SANCTUARY</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; color: var(--color-limestone);">
+          <li><a href="#home" class="nav-page-link" data-route="home">Opening Sanctuary</a></li>
+          <li><a href="#pantheon" class="nav-page-link" data-route="pantheon">Pantheon Archetypes</a></li>
+          <li><a href="#training" class="nav-page-link" data-route="training">Olympic Training Grounds</a></li>
+          <li><a href="#exercises" class="nav-page-link" data-route="exercises">Exercise Codex</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="font-size: 0.85rem; color: var(--color-gold-antique); margin-bottom: 1.25rem; letter-spacing: 0.14em;">DISCIPLINES</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; color: var(--color-limestone);">
+          <li><a href="#nutrition" class="nav-page-link" data-route="nutrition">Mediterranean Fuel</a></li>
+          <li><a href="#philosophy" class="nav-page-link" data-route="philosophy">The 4 Stoic Pillars</a></li>
+          <li><a href="#philosophy" class="nav-page-link" data-route="philosophy">Oracle of Delphi</a></li>
+          <li><a href="#progress" class="nav-page-link" data-route="progress">Pantheon Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="font-size: 0.85rem; color: var(--color-gold-antique); margin-bottom: 1.25rem; letter-spacing: 0.14em;">MAXIM OF DELPHI</h4>
+        <p style="font-size: 0.82rem; font-style: italic; color: var(--color-limestone); line-height: 1.6;">
+          "ΓΝΩΘΙ ΣΕΑΥΤΟΝ"<br>
+          (Know Thyself)<br><br>
+          "ΜΗΔΕΝ ΑΓΑΝ"<br>
+          (Nothing in Excess)
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 OLYTHOS. Ancient Wisdom. Modern Strength. All rights reserved.</span>
+      <span style="font-family: var(--font-serif); color: var(--color-gold-bright);">Forged in Olympia</span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/exercises-data.js"></script>
+  <script src="scripts/audio.js"></script>
+  <script src="scripts/tracker.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>

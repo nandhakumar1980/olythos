@@ -1,0 +1,1416 @@
+/* ==========================================================================
+   OLYTHOS — ANCIENT WISDOM. MODERN STRENGTH.
+   Core Design System, Limestone Materials, Architectural Geometry & Variables
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Cinzel+Decorative:wght@700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Architectural & Mediterranean Color Palette */
+  --color-ivory: #F8F5ED;
+  --color-ivory-soft: #F2ECE0;
+  --color-limestone: #E5DEC9;
+  --color-limestone-dark: #D4CBBA;
+  
+  --color-charcoal-deep: #0D0E10;
+  --color-charcoal: #151619;
+  --color-charcoal-surface: #1E2024;
+  --color-charcoal-light: #2A2D33;
+
+  --color-olive-deep: #161A14;
+  --color-olive-card: #20261D;
+  --color-olive-border: #364031;
+  --color-olive-muted: #56644F;
+
+  --color-gold-antique: #C8A359;
+  --color-gold-bright: #DFBA6E;
+  --color-gold-muted: #8E743F;
+  --color-gold-glow: rgba(200, 163, 89, 0.18);
+
+  --color-bronze: #A27F58;
+  --color-terracotta: #B66548;
+  --color-terracotta-glow: rgba(182, 101, 72, 0.2);
+
+  --color-text-primary: #F8F5ED;
+  --color-text-secondary: #BDB7AB;
+  --color-text-muted: #8B877E;
+  --color-text-dark: #1F2022;
+
+  /* Typography */
+  --font-serif: 'Cinzel', serif;
+  --font-decorative: 'Cinzel Decorative', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Elevation & Shadows */
+  --shadow-stone-sm: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-stone-md: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --shadow-stone-lg: 0 24px 60px rgba(0, 0, 0, 0.5);
+  --shadow-gold-inset: inset 0 0 0 1px rgba(200, 163, 89, 0.3);
+
+  /* Borders & Framing */
+  --border-gold-subtle: 1px solid rgba(200, 163, 89, 0.22);
+  --border-stone: 1px solid rgba(229, 222, 201, 0.15);
+  --radius-stone: 2px; /* Authentic chiselled stone corners, not overly rounded bubble plastic */
+  --radius-card: 4px;
+
+  /* Transitions */
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s ease;
+}
+
+/* Base Reset & Smoothness */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--color-charcoal-deep);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  line-height: 1.6;
+  background-color: var(--color-charcoal-deep);
+  position: relative;
+}
+
+/* Subtle Ancient Film Grain & Ambient Dust Vignette */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 55%, rgba(13,14,16,0.6) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* Selection Color */
+::selection {
+  background: var(--color-gold-antique);
+  color: var(--color-charcoal-deep);
+}
+
+/* Classical Typography */
+h1, h2, h3, h4, .brand-font {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-ivory);
+  text-transform: uppercase;
+}
+
+p {
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  font-size: 1.05rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Page View Architecture: One page displayed at a time */
+.page-view {
+  display: none;
+  min-height: 100vh;
+  position: relative;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.page-view.active-page {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Individual page content spacing */
+.page-content-wrapper {
+  padding: 7rem 4rem 5rem;
+  min-height: calc(100vh - 120px);
+  position: relative;
+  z-index: 2;
+}
+
+.page-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+  padding: 0.4rem 1rem;
+  background: rgba(22, 26, 20, 0.65);
+  border: 1px solid rgba(200, 163, 89, 0.25);
+  border-radius: var(--radius-stone);
+  backdrop-filter: blur(8px);
+}
+
+.page-breadcrumb a {
+  color: var(--color-limestone);
+  transition: color 0.2s ease;
+}
+
+.page-breadcrumb a:hover {
+  color: var(--color-gold-bright);
+}
+
+.page-breadcrumb .current {
+  color: var(--color-gold-bright);
+  font-weight: 700;
+}
+
+/* Greek Key Meander Divider */
+.greek-frieze-divider {
+  width: 100%;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='14' viewBox='0 0 36 14'%3E%3Cpath d='M0 0h24v10H6V4h14v2H8v2h14V2H2v10h24V0h10v14H0V0z' fill='%23c8a359' fill-opacity='0.25'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 36px 14px;
+  margin: 2rem 0;
+  opacity: 0.7;
+}
+
+/* Navigation Bar */
+.sanctuary-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 1.25rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition-smooth);
+  border-bottom: 1px solid rgba(200, 163, 89, 0.15);
+  background: linear-gradient(180deg, rgba(13, 14, 16, 0.88) 0%, rgba(13, 14, 16, 0.65) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.sanctuary-nav.scrolled {
+  padding: 0.85rem 3rem;
+  background: rgba(13, 14, 16, 0.95);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(200, 163, 89, 0.28);
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-sigil {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid var(--color-gold-antique);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(45deg);
+  background: rgba(200, 163, 89, 0.08);
+}
+
+.brand-sigil span {
+  transform: rotate(-45deg);
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--color-gold-bright);
+  font-weight: 800;
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--color-ivory);
+}
+
+.brand-subtitle {
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  color: var(--color-gold-antique);
+  display: block;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  margin-top: -2px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  list-style: none;
+}
+
+.nav-link {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-limestone);
+  position: relative;
+  padding: 0.4rem 0;
+  transition: var(--transition-fast);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1.5px;
+  background: var(--color-gold-antique);
+  transition: var(--transition-smooth);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--color-gold-bright);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* Sanctuary Audio Toggle Button */
+.audio-toggle-btn {
+  background: rgba(32, 38, 29, 0.8);
+  border: 1px solid var(--color-gold-antique);
+  color: var(--color-gold-bright);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-stone);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: var(--transition-fast);
+}
+
+.audio-toggle-btn:hover {
+  background: rgba(200, 163, 89, 0.15);
+  box-shadow: 0 0 15px var(--color-gold-glow);
+}
+
+.audio-pulse-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-gold-antique);
+  opacity: 0.4;
+  transition: var(--transition-fast);
+}
+
+.audio-toggle-btn.active .audio-pulse-indicator {
+  opacity: 1;
+  background: #50E3C2;
+  box-shadow: 0 0 10px #50E3C2;
+  animation: pulseBeacon 2s infinite ease-in-out;
+}
+
+@keyframes pulseBeacon {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.4); opacity: 1; }
+}
+
+/* Primary Classical Button */
+.btn-olympian {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, var(--color-gold-antique) 0%, var(--color-bronze) 100%);
+  color: #0D0E10;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  border: 1px solid var(--color-gold-bright);
+  border-radius: var(--radius-stone);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: var(--transition-smooth);
+}
+
+.btn-olympian::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: 0.6s ease;
+}
+
+.btn-olympian:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(200, 163, 89, 0.35);
+  color: #000;
+}
+
+.btn-olympian:hover::before {
+  left: 100%;
+}
+
+.btn-stone-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: rgba(22, 26, 20, 0.6);
+  color: var(--color-limestone);
+  border: 1px solid rgba(229, 222, 201, 0.3);
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.8rem;
+  border-radius: var(--radius-stone);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-stone-outline:hover {
+  border-color: var(--color-gold-antique);
+  color: var(--color-gold-bright);
+  background: rgba(32, 38, 29, 0.8);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   HERO SECTION — SUNRISE SANCTUARY WITH SCULPTURE & DEPTH
+   ========================================================================== */
+.hero-sanctuary {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 8rem 4rem 6rem;
+  overflow: hidden;
+  background-color: var(--color-charcoal-deep);
+}
+
+/* Environmental Layered Background with Subtle Parallax */
+.hero-environment-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  object-fit: cover;
+  object-position: right center;
+  z-index: 1;
+  transform: scale(1.02);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: contrast(105%) brightness(96%);
+}
+
+/* Charcoal Gradient Overlay only on the left for readable text */
+.hero-readability-scrim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    rgba(13, 14, 16, 0.94) 0%,
+    rgba(13, 14, 16, 0.82) 36%,
+    rgba(13, 14, 16, 0.45) 58%,
+    rgba(13, 14, 16, 0.08) 85%,
+    rgba(13, 14, 16, 0.2) 100%
+  ),
+  linear-gradient(
+    0deg,
+    rgba(13, 14, 16, 0.95) 0%,
+    rgba(13, 14, 16, 0.2) 20%,
+    rgba(13, 14, 16, 0) 50%
+  );
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 720px;
+  animation: heroEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-creed-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(22, 26, 20, 0.75);
+  border: 1px solid var(--color-gold-antique);
+  padding: 0.4rem 1.1rem;
+  border-radius: var(--radius-stone);
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(6px);
+}
+
+.hero-creed-badge span {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  color: var(--color-gold-bright);
+  text-transform: uppercase;
+}
+
+.hero-creed-badge .dot {
+  width: 5px;
+  height: 5px;
+  background: var(--color-gold-bright);
+  border-radius: 50%;
+}
+
+.hero-main-heading {
+  font-size: clamp(2.8rem, 5.2vw, 4.8rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.hero-main-heading .gold-text {
+  color: var(--color-gold-bright);
+  background: linear-gradient(135deg, #F8F5ED 20%, var(--color-gold-bright) 70%, var(--color-bronze) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--color-limestone);
+  margin-bottom: 2.25rem;
+  max-width: 600px;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+.hero-stats-banner {
+  display: flex;
+  gap: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(200, 163, 89, 0.2);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-family: var(--font-serif);
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--color-ivory);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: var(--color-gold-antique);
+  text-transform: uppercase;
+  margin-top: 0.35rem;
+}
+
+/* ==========================================================================
+   GLOBAL SECTION CONTAINER & ARCHITECTURAL HEADINGS
+   ========================================================================== */
+.section-sanctuary {
+  position: relative;
+  padding: 7rem 4rem;
+  border-bottom: 1px solid rgba(229, 222, 201, 0.08);
+}
+
+.section-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.22;
+  filter: contrast(110%) brightness(75%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.section-backdrop-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(21, 22, 25, 0.8) 0%, rgba(13, 14, 16, 0.96) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.section-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 4rem;
+}
+
+.section-tagline {
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  color: var(--color-gold-antique);
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: var(--color-ivory);
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.section-lead {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-limestone-dark);
+}
+
+/* ==========================================================================
+   PANTHEON DEITIES GRID (CAROUSEL / DISCIPLINE SYSTEM)
+   ========================================================================== */
+.pantheon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+}
+
+.pantheon-card {
+  position: relative;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--color-olive-card);
+  border: 1px solid rgba(200, 163, 89, 0.2);
+  box-shadow: var(--shadow-stone-md);
+  transition: var(--transition-smooth);
+  cursor: pointer;
+  height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+
+.pantheon-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  filter: brightness(75%) contrast(105%);
+}
+
+.pantheon-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(13, 14, 16, 0.95) 0%, rgba(13, 14, 16, 0.6) 50%, rgba(13, 14, 16, 0.15) 100%);
+  transition: var(--transition-fast);
+}
+
+.pantheon-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--color-gold-bright);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6), 0 0 20px rgba(200, 163, 89, 0.2);
+}
+
+.pantheon-card:hover .pantheon-card-bg {
+  transform: scale(1.08);
+  filter: brightness(88%) contrast(110%);
+}
+
+.pantheon-card-content {
+  position: relative;
+  z-index: 3;
+}
+
+.pantheon-deity-badge {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold-bright);
+  margin-bottom: 0.5rem;
+}
+
+.pantheon-deity-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-ivory);
+  margin-bottom: 0.4rem;
+}
+
+.pantheon-deity-discipline {
+  font-size: 0.88rem;
+  color: var(--color-limestone);
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+}
+
+.pantheon-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(200, 163, 89, 0.25);
+  padding-top: 0.85rem;
+}
+
+.pantheon-focus-pill {
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pantheon-arrow {
+  color: var(--color-gold-bright);
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.pantheon-card:hover .pantheon-arrow {
+  transform: translateX(6px);
+}
+
+/* ==========================================================================
+   INTERACTIVE WORKOUT PLANNER & ACTIVE ROUTINE RUNNER
+   ========================================================================== */
+.workout-arena-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.arena-controls-panel {
+  background: rgba(22, 26, 20, 0.85);
+  border: 1px solid rgba(200, 163, 89, 0.25);
+  border-radius: var(--radius-card);
+  padding: 2rem;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-stone-md);
+}
+
+.arena-controls-title {
+  font-size: 1.15rem;
+  color: var(--color-ivory);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(200, 163, 89, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.control-group {
+  margin-bottom: 1.5rem;
+}
+
+.control-label {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: var(--color-gold-bright);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.stone-select, .stone-input {
+  width: 100%;
+  background: var(--color-charcoal-deep);
+  border: 1px solid rgba(200, 163, 89, 0.3);
+  color: var(--color-ivory);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  border-radius: var(--radius-stone);
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.stone-select:focus, .stone-input:focus {
+  border-color: var(--color-gold-bright);
+  box-shadow: 0 0 10px rgba(200, 163, 89, 0.25);
+}
+
+.arena-board {
+  background: rgba(21, 22, 25, 0.9);
+  border: 1px solid rgba(200, 163, 89, 0.25);
+  border-radius: var(--radius-card);
+  padding: 2.5rem;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-stone-lg);
+  position: relative;
+}
+
+.active-routine-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(200, 163, 89, 0.25);
+}
+
+.active-routine-title {
+  font-size: 2rem;
+  color: var(--color-ivory);
+}
+
+.active-routine-greek {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  color: var(--color-gold-antique);
+  letter-spacing: 0.12em;
+}
+
+.routine-meta-pills {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.meta-pill {
+  background: rgba(32, 38, 29, 0.8);
+  border: 1px solid rgba(200, 163, 89, 0.2);
+  padding: 0.35rem 0.85rem;
+  font-size: 0.78rem;
+  color: var(--color-limestone);
+  border-radius: var(--radius-stone);
+}
+
+/* Rest Timer Floating Banner */
+.rest-timer-banner {
+  background: linear-gradient(90deg, #1C201A 0%, #2A1F18 100%);
+  border: 1px solid var(--color-gold-antique);
+  border-radius: var(--radius-stone);
+  padding: 1rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.timer-countdown {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-gold-bright);
+}
+
+.routine-exercise-item {
+  background: rgba(22, 26, 20, 0.6);
+  border: 1px solid rgba(229, 222, 201, 0.12);
+  border-radius: var(--radius-stone);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  transition: var(--transition-fast);
+}
+
+.routine-exercise-item:hover {
+  border-color: rgba(200, 163, 89, 0.4);
+  background: rgba(32, 38, 29, 0.8);
+}
+
+.routine-exercise-item.completed {
+  opacity: 0.55;
+  border-color: #365039;
+  background: rgba(22, 32, 24, 0.4);
+}
+
+.routine-exercise-thumb {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-stone);
+  object-fit: cover;
+  border: 1px solid rgba(200, 163, 89, 0.25);
+}
+
+.exercise-log-checkbox {
+  width: 24px;
+  height: 24px;
+  accent-color: var(--color-gold-antique);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   EXERCISE LIBRARY (SEARCH, FILTERS & CARDS)
+   ========================================================================== */
+.exercise-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.filter-pill-btn {
+  background: rgba(22, 26, 20, 0.7);
+  border: 1px solid rgba(200, 163, 89, 0.2);
+  color: var(--color-limestone);
+  font-family: var(--font-serif);
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.2rem;
+  border-radius: var(--radius-stone);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.filter-pill-btn:hover, .filter-pill-btn.active {
+  background: var(--color-gold-antique);
+  color: #0D0E10;
+  border-color: var(--color-gold-bright);
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(200, 163, 89, 0.3);
+}
+
+.exercise-search-input-wrapper {
+  max-width: 520px;
+  margin: 0 auto 3rem;
+  position: relative;
+}
+
+.exercise-search-box {
+  width: 100%;
+  background: rgba(13, 14, 16, 0.85);
+  border: 1px solid rgba(200, 163, 89, 0.3);
+  color: var(--color-ivory);
+  padding: 0.95rem 1.4rem;
+  border-radius: var(--radius-stone);
+  font-size: 1rem;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.exercise-search-box:focus {
+  border-color: var(--color-gold-bright);
+  box-shadow: 0 0 18px rgba(200, 163, 89, 0.2);
+}
+
+.exercise-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.exercise-card {
+  background: var(--color-charcoal-surface);
+  border: 1px solid rgba(200, 163, 89, 0.18);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.exercise-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-gold-antique);
+  box-shadow: var(--shadow-stone-lg);
+}
+
+.exercise-card-image-box {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.exercise-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.exercise-card:hover .exercise-card-image {
+  transform: scale(1.06);
+}
+
+.exercise-card-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(13, 14, 16, 0.85);
+  border: 1px solid var(--color-gold-antique);
+  color: var(--color-gold-bright);
+  font-family: var(--font-serif);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-stone);
+}
+
+.exercise-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.exercise-card-title {
+  font-size: 1.25rem;
+  color: var(--color-ivory);
+  margin-bottom: 0.35rem;
+  line-height: 1.2;
+}
+
+.exercise-card-lore {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--color-limestone-dark);
+  margin-bottom: 1.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.exercise-card-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(229, 222, 201, 0.1);
+  padding-top: 0.85rem;
+}
+
+/* ==========================================================================
+   MODAL DIALOG (EXERCISE DETAIL & HISTORICAL LORE)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 11, 13, 0.88);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-stone-dialog {
+  background: var(--color-charcoal);
+  border: 1px solid var(--color-gold-antique);
+  border-radius: var(--radius-card);
+  max-width: 840px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.85);
+  animation: modalSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalSlide {
+  from { transform: translateY(30px) scale(0.97); }
+  to { transform: translateY(0) scale(1); }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: rgba(22, 26, 20, 0.8);
+  border: 1px solid var(--color-gold-antique);
+  color: var(--color-ivory);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-stone);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  z-index: 10;
+  transition: var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background: var(--color-gold-antique);
+  color: #0D0E10;
+}
+
+.modal-header-hero {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.modal-header-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-header-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, var(--color-charcoal) 0%, rgba(21, 22, 25, 0.3) 100%);
+}
+
+.modal-body-content {
+  padding: 2.25rem;
+}
+
+/* ==========================================================================
+   NUTRITION SECTION & MACRO CALCULATOR
+   ========================================================================== */
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.nutrition-calc-box {
+  background: rgba(22, 26, 20, 0.85);
+  border: 1px solid rgba(200, 163, 89, 0.28);
+  border-radius: var(--radius-card);
+  padding: 2.5rem;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-stone-md);
+}
+
+.macro-results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(200, 163, 89, 0.2);
+}
+
+.macro-card {
+  background: rgba(13, 14, 16, 0.7);
+  border: 1px solid rgba(229, 222, 201, 0.15);
+  border-radius: var(--radius-stone);
+  padding: 1.25rem 0.75rem;
+  text-align: center;
+}
+
+.macro-val {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-gold-bright);
+}
+
+.macro-name {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--color-limestone);
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+
+/* ==========================================================================
+   PHILOSOPHY SECTION — THE 4 PILLARS & DELPHIC ORACLE
+   ========================================================================== */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.pillar-card {
+  background: rgba(22, 26, 20, 0.7);
+  border: 1px solid rgba(200, 163, 89, 0.22);
+  border-radius: var(--radius-card);
+  padding: 2.25rem;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.pillar-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-gold-antique);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+  background: rgba(32, 38, 29, 0.85);
+}
+
+.pillar-greek-name {
+  font-family: var(--font-decorative);
+  font-size: 1.8rem;
+  color: var(--color-gold-antique);
+  margin-bottom: 0.5rem;
+}
+
+.pillar-english-title {
+  font-size: 1.2rem;
+  color: var(--color-ivory);
+  margin-bottom: 1rem;
+}
+
+.pillar-quote {
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-limestone);
+  border-left: 2px solid var(--color-gold-antique);
+  padding-left: 1rem;
+  margin-top: 1.25rem;
+}
+
+/* Delphic Stoic Generator */
+.delphic-oracle-altar {
+  background: linear-gradient(180deg, rgba(22, 26, 20, 0.9) 0%, rgba(13, 14, 16, 0.95) 100%);
+  border: 1px solid var(--color-gold-antique);
+  border-radius: var(--radius-card);
+  padding: 3rem;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-stone-lg);
+  position: relative;
+}
+
+.oracle-quote-text {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  line-height: 1.6;
+  color: var(--color-ivory);
+  margin-bottom: 1.25rem;
+}
+
+.oracle-author {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--color-gold-bright);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   PROGRESS DASHBOARD (RESTFUL DARK OLIVE & IVORY INTERFACE)
+   ========================================================================== */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.dash-stone-card {
+  background: var(--color-olive-card);
+  border: 1px solid rgba(200, 163, 89, 0.22);
+  border-radius: var(--radius-card);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-stone-md);
+}
+
+.dash-card-title {
+  font-size: 1.2rem;
+  color: var(--color-ivory);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(200, 163, 89, 0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Radar alignment bars */
+.alignment-bar-row {
+  margin-bottom: 1.25rem;
+}
+
+.alignment-bar-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-family: var(--font-serif);
+  letter-spacing: 0.1em;
+  color: var(--color-limestone);
+  margin-bottom: 0.4rem;
+}
+
+.alignment-track {
+  height: 8px;
+  background: rgba(13, 14, 16, 0.8);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(200, 163, 89, 0.15);
+}
+
+.alignment-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-gold-muted) 0%, var(--color-gold-bright) 100%);
+  border-radius: 4px;
+  transition: width 1s ease-in-out;
+}
+
+/* PR Table */
+.pr-inputs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.pr-input-item label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--color-gold-antique);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+/* Footer Sanctuary */
+.sanctuary-footer {
+  background: #090A0C;
+  border-top: 1px solid rgba(200, 163, 89, 0.25);
+  padding: 5rem 4rem 3rem;
+  position: relative;
+}
+
+.footer-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-bottom {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(229, 222, 201, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+/* Responsive Adaptations */
+@media (max-width: 1024px) {
+  .sanctuary-nav {
+    padding: 1rem 1.5rem;
+  }
+  .nav-links {
+    display: none; /* Mobile menu toggled */
+  }
+  .workout-arena-grid, .nutrition-grid, .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-sanctuary {
+    padding: 7rem 2rem 5rem;
+  }
+  .section-sanctuary {
+    padding: 5rem 1.75rem;
+  }
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+}
